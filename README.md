@@ -7,19 +7,20 @@
 最後修改日期： 2023/12/26  
 作者： smilin （微笑）
 
-# [演示網址]()
+# [演示網址](https://home.gamer.com.tw/creationDetail.php?sn=5853466)
 
 [油猴](https://greasyfork.org/zh-TW/scripts/483109-%E5%B7%B4%E5%8F%8Bip%E7%B4%80%E9%8C%84)  
 [Github](https://github.com/Mr-Smilin/bahamut-ip-record)
 
-當前版本： 0.02  
-更新說明： 列表展開折疊 & 細部邏輯調整
+當前版本： 0.03  
+更新說明： 調整使用者新增資料，對已讀的影響
 
 <details> <summary>版本紀錄</summary>  
   <br>  
   
 - 0.1： 初版上傳  
 - 0.2： 列表展開折疊 & 細部邏輯調整
+- 0.3： 調整使用者新增資料，對已讀的影響
   
 </details>
   

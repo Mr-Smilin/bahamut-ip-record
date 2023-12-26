@@ -3,7 +3,7 @@
 // @description  醒目IP、相似IP提示
 // @namespace    https://smilin.net
 // @author       smilin
-// @version      0.02
+// @version      0.03
 // @license MIT
 // @homepage     https://home.gamer.com.tw/homeindex.php?owner=a33073307
 // @match        https://forum.gamer.com.tw/C.php*
@@ -308,7 +308,7 @@
 
 	async function addUsername(userid, username, ip, time, localStor) {
 		localStor[userid].lastUpdated = new Date().toISOString().split("T")[0];
-		localStor[userid].isRead = true;
+		// localStor[userid].isRead = true;
 		localStor[userid].data.push({
 			ip: ip, // IP
 			time: time, // IP 紀錄時間
