@@ -76,17 +76,21 @@
 	const ipList = (localStor, userid, ip) => {
 		// 創建 table 元素
 		const tableContainer = document.createElement("div");
-		const table = document.createElement("table");
+		const table1 = document.createElement("table");
+		const table2 = document.createElement("table");
 		createTableContainerStyle(tableContainer);
-		createTableStyle(table);
-		tableContainer.appendChild(table);
+		createTableStyle(table1);
+		createTableStyle(table2);
+		tableContainer.appendChild(table1);
+		tableContainer.appendChild(table2);
 
 		// 創建 tbody 元素
 		const tbody = document.createElement("tbody");
-		table.appendChild(tbody);
+		table1.appendChild(tbody);
 
 		// 創建標題行
 		const headerRow = document.createElement("tr");
+		toggleDataRows(headerRow);
 		const headerNameCell = createTableCell("IP");
 		const headerDayCell = createTableCell("發文時間");
 		createThStyle(headerNameCell);
@@ -107,7 +111,11 @@
 		});
 
 		// 相似ip
+		const ipTbody = document.createElement("tbody");
+		table2.appendChild(ipTbody);
+
 		const ipHeaderRow = document.createElement("tr");
+		toggleDataRows(ipHeaderRow);
 		const ipHeaderNameCell = createTableCell("使用者名稱");
 		const ipHeaderIpCell = createTableCell("相似IP");
 		const ipHeaderTimeCell = createTableCell("發文時間");
@@ -117,7 +125,7 @@
 		ipHeaderRow.appendChild(ipHeaderNameCell);
 		ipHeaderRow.appendChild(ipHeaderIpCell);
 		ipHeaderRow.appendChild(ipHeaderTimeCell);
-		tbody.appendChild(ipHeaderRow);
+		ipTbody.appendChild(ipHeaderRow);
 
 		localStor[ip].data.forEach((element) => {
 			if (element.userid === userid) return;
@@ -136,7 +144,7 @@
 			row.appendChild(nameCell);
 			row.appendChild(ipCell);
 			row.appendChild(dayCell);
-			tbody.appendChild(row);
+			ipTbody.appendChild(row);
 		});
 
 		return tableContainer;
@@ -161,6 +169,7 @@
 		tableContainer.style.borderRadius = "10px";
 		tableContainer.style.margin = "5px 0px 5px 0px";
 		tableContainer.style.color = "#464646";
+		tableContainer.style.flexDirection = "column";
 	}
 
 	function createTableStyle(table) {
@@ -187,6 +196,25 @@
 		tr.addEventListener("mouseout", function () {
 			tr.style.backgroundColor = "";
 		});
+	}
+
+	//#endregion
+
+	//#region table js
+
+	// 折疊 td 行
+	function toggleDataRows(e) {
+		e.onclick = function () {
+			const table = e.closest("table");
+			const allTr = table.querySelectorAll("tr");
+			allTr.forEach(function (tr) {
+				if (tr === e) return;
+				tr.style.display =
+					tr.style.display === "none" || tr.style.display === ""
+						? "table-row"
+						: "none";
+			});
+		};
 	}
 
 	//#endregion
@@ -280,7 +308,7 @@
 
 	async function addUsername(userid, username, ip, time, localStor) {
 		localStor[userid].lastUpdated = new Date().toISOString().split("T")[0];
-		localStor[userid].isRead = false;
+		localStor[userid].isRead = true;
 		localStor[userid].data.push({
 			ip: ip, // IP
 			time: time, // IP 紀錄時間

@@ -9,7 +9,7 @@
 
 # [演示網址]()
 
-[油猴]()  
+[油猴](https://greasyfork.org/zh-TW/scripts/483109-%E5%B7%B4%E5%8F%8Bip%E7%B4%80%E9%8C%84)  
 [Github](https://github.com/Mr-Smilin/bahamut-ip-record)
 
 當前版本： 0.01  
@@ -19,6 +19,7 @@
   <br>  
   
 - 0.1： 初版上傳  
+- 0.2： 列表展開折疊 & 細部邏輯調整
   
 </details>
   
