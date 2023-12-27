@@ -3,7 +3,7 @@
 // @description  醒目IP、相似IP提示
 // @namespace    https://smilin.net
 // @author       smilin
-// @version      0.03
+// @version      0.04
 // @license MIT
 // @homepage     https://home.gamer.com.tw/homeindex.php?owner=a33073307
 // @match        https://forum.gamer.com.tw/C.php*
@@ -127,24 +127,26 @@
 		ipHeaderRow.appendChild(ipHeaderTimeCell);
 		ipTbody.appendChild(ipHeaderRow);
 
-		localStor[ip].data.forEach((element) => {
-			if (element.userid === userid) return;
-			const row = document.createElement("tr");
-			createTrStyle(row);
+		localStor[userid].data.forEach((element) => {
+			localStor[element.ip].data.forEach((element) => {
+				if (element.userid === userid) return;
+				const row = document.createElement("tr");
+				createTrStyle(row);
 
-			const nameA = document.createElement("a");
-			nameA.href = `https://home.gamer.com.tw/profile/index.php?&owner=${element.userid}`;
-			nameA.textContent = element.username;
-			const nameCell = document.createElement("td");
-			nameCell.style.padding = "8px";
-			nameCell.appendChild(nameA);
+				const nameA = document.createElement("a");
+				nameA.href = `https://home.gamer.com.tw/profile/index.php?&owner=${element.userid}`;
+				nameA.textContent = element.username;
+				const nameCell = document.createElement("td");
+				nameCell.style.padding = "8px";
+				nameCell.appendChild(nameA);
 
-			const ipCell = createTableCell(element.ip);
-			const dayCell = createTableCell(element.time);
-			row.appendChild(nameCell);
-			row.appendChild(ipCell);
-			row.appendChild(dayCell);
-			ipTbody.appendChild(row);
+				const ipCell = createTableCell(element.ip);
+				const dayCell = createTableCell(element.time);
+				row.appendChild(nameCell);
+				row.appendChild(ipCell);
+				row.appendChild(dayCell);
+				ipTbody.appendChild(row);
+			});
 		});
 
 		return tableContainer;
