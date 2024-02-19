@@ -12,8 +12,8 @@
 [油猴](https://greasyfork.org/zh-TW/scripts/483109-%E5%B7%B4%E5%8F%8Bip%E7%B4%80%E9%8C%84)  
 [Github](https://github.com/Mr-Smilin/bahamut-ip-record)
 
-當前版本： 0.04  
-更新說明： 調整相似 IP 判斷邏輯
+當前版本： 0.05  
+更新說明： 修復投票導致 crash 問題
 
 <details> <summary>版本紀錄</summary>  
   <br>  
@@ -22,6 +22,7 @@
 - 0.2： 列表展開折疊 & 細部邏輯調整
 - 0.3： 調整使用者新增資料對已讀的影響
 - 0.4： 調整相似IP判斷邏輯
+- 0.5： 修復投票導致 crash 問題
   
 </details>
   

@@ -387,6 +387,9 @@
 
 	async function renderPostHeader(dom) {
 		for (let d of dom) {
+			// 0.05 投票防呆
+			const isFloor = d.querySelector(".c-post__header__author");
+			if (!isFloor) continue;
 			const userid = d.querySelector(".userid").textContent.trim();
 			const username = d.querySelector(".username").textContent.trim();
 			const ip = d.querySelector(".edittime").getAttribute("data-hideip");
