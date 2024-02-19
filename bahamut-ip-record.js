@@ -3,7 +3,7 @@
 // @description  醒目IP、相似IP提示
 // @namespace    https://smilin.net
 // @author       smilin
-// @version      0.04
+// @version      0.05
 // @license MIT
 // @homepage     https://home.gamer.com.tw/homeindex.php?owner=a33073307
 // @match        https://forum.gamer.com.tw/C.php*
